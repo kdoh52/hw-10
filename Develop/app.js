@@ -9,10 +9,56 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { prompts } = require("inquirer");
 
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+// var questions = [
+//     {
+//         type: 'input',
+//         name: 'first_name',
+//         message: "What's your name?",
+//       },
+// ];
+
+inquirer
+  .prompt([
+    {
+        type: 'input',
+        name: 'name',
+        message: 'What is your name?',
+    },
+    {
+      type: 'list',
+      name: 'role',
+      message: 'What is your role?',
+      choices: ['Manager', 'Engineer', 'Intern'],
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: 'What is your ID number?',
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email?',
+    },
+    // {
+    //   type: 'list',
+    //   name: 'size',
+    //   message: 'What size do you need?',
+    //   choices: ['Jumbo', 'Large', 'Standard', 'Medium', 'Small', 'Micro'],
+    //   filter: function (val) {
+    //     return val.toLowerCase();
+    //   },
+    // },
+  ])
+  .then((answers) => {
+    console.log(JSON.stringify(answers, null, '  '));
+  });
+
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
