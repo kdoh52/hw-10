@@ -18,19 +18,20 @@ const { get } = require("http");
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 function getInfo() {
+    let team = [];
     
     inquirer
-      .prompt([
+        .prompt([
         {
             type: 'input',
             name: 'name',
             message: 'What is your name?',
         },
         {
-          type: 'list',
-          name: 'role',
-          message: 'What is your role?',
-          choices: ['Manager', 'Engineer', 'Intern'],
+            type: 'list',
+            name: 'role',
+            message: 'What is your role?',
+            choices: ['Manager', 'Engineer', 'Intern'],
         },
         {
             type: 'input',
@@ -60,11 +61,13 @@ function getInfo() {
             message: 'Where do you go to school?',
             when: (answers) => answers.role === "Intern",
         },
-      ])
-      .then((answers) => {
+        ])
+        .then((answers) => {
         var newMember = JSON.stringify(answers, null, '  ');
         console.log(newMember);
-      });
+        team.push(newMember);
+        console.log(team);
+        });
 }
 getInfo();
 
