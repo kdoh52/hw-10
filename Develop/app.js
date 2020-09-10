@@ -17,11 +17,12 @@ const { get } = require("http");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-function getInfo() {
-    let team = [];
-    
-    inquirer
-        .prompt([
+inquirer.registerPrompt('recursive', require('inquirer-recursive'));
+inquirer.prompt([{
+    type: 'recursive',
+    message: 'Add a new user?',
+    name: 'users',
+    prompts: [
         {
             type: 'input',
             name: 'name',
@@ -45,7 +46,7 @@ function getInfo() {
         },
         {
             type: 'input',
-            name: 'office-num',
+            name: 'office',
             message: 'What is your office number?',
             when: (answers) => answers.role === "Manager",
         },
@@ -61,16 +62,12 @@ function getInfo() {
             message: 'Where do you go to school?',
             when: (answers) => answers.role === "Intern",
         },
-        ])
-        .then((answers) => {
-        var newMember = JSON.stringify(answers, null, '  ');
-        console.log(newMember);
-        team.push(newMember);
-        console.log(team);
-        });
-}
-getInfo();
-
+    ]
+}]).then(function(answers) {
+    // console.log(answers.users);
+    let team = answers.users;
+    console.log(team);
+});
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
@@ -91,3 +88,4 @@ getInfo();
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
+
