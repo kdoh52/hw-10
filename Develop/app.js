@@ -10,54 +10,63 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 const { prompts } = require("inquirer");
+const { RSA_X931_PADDING } = require("constants");
+const { get } = require("http");
 
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-// var questions = [
-//     {
-//         type: 'input',
-//         name: 'first_name',
-//         message: "What's your name?",
-//       },
-// ];
 
-inquirer
-  .prompt([
-    {
-        type: 'input',
-        name: 'name',
-        message: 'What is your name?',
-    },
-    {
-      type: 'list',
-      name: 'role',
-      message: 'What is your role?',
-      choices: ['Manager', 'Engineer', 'Intern'],
-    },
-    {
-        type: 'input',
-        name: 'id',
-        message: 'What is your ID number?',
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: 'What is your email?',
-    },
-    // {
-    //   type: 'list',
-    //   name: 'size',
-    //   message: 'What size do you need?',
-    //   choices: ['Jumbo', 'Large', 'Standard', 'Medium', 'Small', 'Micro'],
-    //   filter: function (val) {
-    //     return val.toLowerCase();
-    //   },
-    // },
-  ])
-  .then((answers) => {
-    console.log(JSON.stringify(answers, null, '  '));
-  });
+function getInfo() {
+    
+    inquirer
+      .prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is your name?',
+        },
+        {
+          type: 'list',
+          name: 'role',
+          message: 'What is your role?',
+          choices: ['Manager', 'Engineer', 'Intern'],
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is your ID number?',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is your email?',
+        },
+        {
+            type: 'input',
+            name: 'office-num',
+            message: 'What is your office number?',
+            when: (answers) => answers.role === "Manager",
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'What is your GitHub username?',
+            when: (answers) => answers.role === "Engineer",
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: 'Where do you go to school?',
+            when: (answers) => answers.role === "Intern",
+        },
+      ])
+      .then((answers) => {
+        var newMember = JSON.stringify(answers, null, '  ');
+        console.log(newMember);
+      });
+}
+getInfo();
 
 
 // After the user has input all employees desired, call the `render` function (required
