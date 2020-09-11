@@ -1,0 +1,31 @@
+h1 {
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.member {
+    /* background-color: rgb(23, 82, 190); */
+    background-color: rgb(190, 190, 190);
+    /* padding: 20px; */
+    margin: 20px;
+    width: 200px;
+    border-radius: 10px;
+}
+.titles {
+    background-color: rgb(23, 82, 190);
+    border-radius: 10px;
+    padding-left: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.info {
+    /* background-color: rgb(161, 161, 161); */
+    padding: 10px;
+    padding-left: 25px;
+    border-radius: 10px;
+
+}
