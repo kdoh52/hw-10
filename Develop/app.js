@@ -16,11 +16,6 @@ const { get } = require("http");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-// fs.appendFile("team.html", "<link rel='stylesheet' href='style.css'>" + '\n' + "<div class='container'>", function(err) {
-//     if (err) {
-//       console.log(err);
-//     }
-// });
 
 inquirer.registerPrompt('recursive', require('inquirer-recursive'));
 inquirer.prompt([{
@@ -70,8 +65,7 @@ inquirer.prompt([{
     ]
 }]).then(function(answers) {
     const team = answers.users;
-    console.log(team);
-    // renderhtml(team);
+    // console.log(team);
     createObjects(team);
 });
 
@@ -101,7 +95,6 @@ function createObjects(team) {
     }
 }
 
-
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
@@ -114,37 +107,6 @@ function checkArray(team) {
         appendHTML(renderHTML);
     }
 }
-
-
-
-
-// function renderhtml(team) {
-//     for (i = 0; i < team.length; i++) {
-//         let html = "";
-//         // console.log(team[i]);
-//         html += "<div class='member' id='" + team[i].id + "'>" + "\n";
-//         html += "<div class='titles' id='" + team[i].id + "'>" + "\n";
-//         html += "<h1>" + team[i].name + "</h1>" + "\n";
-//         html += "<h2>" + team[i].role + "</h2>" + "\n";
-//         html += "</div>" + "\n"
-//         html += "<div class='info'>" + "\n";
-//         html += "<p>" + "ID: " + team[i].id + "</p>" + "\n"
-//         html += "<p>" + "Email: " + team[i].email + "</p>" + "\n"
-//         if (team[i].office) {
-//             html += "<p>" + "Office: " + team[i].office + "</p>" + "\n"
-//         }
-//         if (team[i].github) {
-//             html += "<p>" + "GitHub: " + team[i].github + "</p>" + "\n"
-//         }
-//         if (team[i].school) {
-//             html += "<p>" + "School: " + team[i].school + "</p>" + "\n"
-//         }
-//         html += "</div>" + "\n"
-//         html += "</div>" + "\n"
-//         appendHTML(html);
-//     }
-//     closeHTML();
-// }
 
 
 // After you have your html, you're now ready to create an HTML file using the HTML
@@ -161,14 +123,6 @@ function appendHTML(renderHTML) {
         }
     });
 }
-
-// function closeHTML() {
-//     fs.appendFile("team.html", "</div>" + '\n', function(err) {
-//         if (err) {
-//           console.log(err);
-//         }
-//     });
-// }
 
 
 // HINT: each employee type (manager, engineer, or intern) has slightly different
