@@ -1,0 +1,19 @@
+h1 {
+    color: white;
+}
+
+.jumbotron {
+    background-color: rgb(0, 110, 255);
+}
+
+.card-header {
+    background-color: rgb(4, 121, 23);
+}
+
+.card-title {
+    color: white;
+}
+
+.employee-card {
+    margin: 5px;
+}

@@ -17,4 +17,19 @@ Engineer.prototype.getGithub = function() {
     return getgithub;
 }
 
+Engineer.prototype.getName = function() {
+    var getname = this.name;
+    return getname;
+}
+
+Engineer.prototype.getEmail = function() {
+    var getemail = this.email;
+    return getemail;
+}
+
+Engineer.prototype.getId = function() {
+    var getid = this.id;
+    return getid;
+}
+
 module.exports = Engineer;

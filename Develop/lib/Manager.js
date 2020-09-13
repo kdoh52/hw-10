@@ -17,4 +17,19 @@ Manager.prototype.getOfficeNumber = function() {
     return getoffice;
 }
 
+Manager.prototype.getName = function() {
+    var getname = this.name;
+    return getname;
+}
+
+Manager.prototype.getEmail = function() {
+    var getemail = this.email;
+    return getemail;
+}
+
+Manager.prototype.getId = function() {
+    var getid = this.id;
+    return getid;
+}
+
 module.exports = Manager;

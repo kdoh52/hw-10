@@ -18,4 +18,19 @@ Intern.prototype.getSchool = function() {
     return getschool;
 }
 
+Intern.prototype.getName = function() {
+    var getname = this.name;
+    return getname;
+}
+
+Intern.prototype.getEmail = function() {
+    var getemail = this.email;
+    return getemail;
+}
+
+Intern.prototype.getId = function() {
+    var getid = this.id;
+    return getid;
+}
+
 module.exports = Intern;
