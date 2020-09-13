@@ -22,7 +22,6 @@ fs.appendFile("team.html", "<link rel='stylesheet' href='style.css'>" + '\n' + "
     }
 });
 
-
 inquirer.registerPrompt('recursive', require('inquirer-recursive'));
 inquirer.prompt([{
     type: 'recursive',
@@ -70,8 +69,9 @@ inquirer.prompt([{
         },
     ]
 }]).then(function(answers) {
-    let team = answers.users;
-    // console.log(team);
+    const team = answers.users;
+    console.log(team);
+    // module.exports.team = "hi";
     renderhtml(team);
 });
 

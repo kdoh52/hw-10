@@ -2,6 +2,16 @@ h1 {
     color: white;
 }
 
+.hero {
+    color: white;
+    margin: auto;
+    text-align: center;
+    background-color: rgb(252, 48, 22);
+    padding: 10px;
+    border-radius: 15px;
+    width: 60%;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
