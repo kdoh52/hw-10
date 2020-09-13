@@ -101,8 +101,7 @@ function createObjects(team) {
 
 function checkArray(team) {
     if (teamArray.length == team.length) {
-        console.log("hehehehe")
-        console.log(teamArray)
+        // console.log(teamArray)
         var renderHTML = render(teamArray);
         appendHTML(renderHTML);
     }
