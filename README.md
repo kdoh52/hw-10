@@ -6,7 +6,7 @@ This application is a command line interface that prompts the user to input info
 <img src="screenshot.png" alt="screenshot">
 
 ## Demo
-<a href="">YouTube video</a>
+<a href="https://youtu.be/sqE-VtEFJYw">YouTube video</a>
 
 ## Credits
 * HTML
